@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Виталий Солельщиков - Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;
+    --paper-2:#eef1f4;
+    --ink:#15171c;
+    --ink-soft:#41454d;
+    --ink-faint:#646973;
+    --rust:#c2410c;
+    --rust-deep:#9a3412;
+    --line:#e2e6ea;
+    --card:#f7f8fa;
+    --live:#1f7a4d;
+    --maxw:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Manrope',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 1px 1px, rgba(21,23,28,.035) 1px, transparent 0);
+    background-size:22px 22px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:64px 40px 90px}
+
+  /* ---------- HEADER ---------- */
+  header{
+    display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;
+    border-bottom:3px solid var(--ink);padding-bottom:26px;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--rust);font-weight:500;margin-bottom:14px;
+  }
+  h1{
+    font-family:'Manrope',sans-serif;font-weight:800;line-height:.92;
+    font-size:clamp(2.8rem,7vw,5.1rem);letter-spacing:-.03em;
+  }
+  h1 .last{color:var(--ink);display:block}
+  .role{
+    font-family:'Manrope',sans-serif;font-weight:600;
+    font-size:clamp(1.3rem,3vw,1.9rem);color:var(--rust-deep);margin-top:10px;letter-spacing:-.01em;
+  }
+  .contacts{text-align:right;font-size:.86rem;color:var(--ink-soft);line-height:2}
+  .contacts a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+  .contacts a:hover{border-color:var(--rust);color:var(--rust)}
+  .contacts .tag{
+    display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.66rem;
+    letter-spacing:.06em;background:var(--ink);color:var(--paper);
+    padding:3px 9px;border-radius:20px;margin-top:6px;
+  }
+
+  /* ---------- LEAD ---------- */
+  .role-tags{
+    font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.02em;
+    color:var(--ink-soft);margin-top:12px;line-height:1.7;
+  }
+  .lead{
+    margin:30px 0 8px;font-size:clamp(1.05rem,2vw,1.32rem);line-height:1.6;
+    max-width:46em;color:var(--ink);font-weight:400;
+  }
+  .lead b{font-weight:700}
+
+  /* ---------- METRICS STRIP ---------- */
+  .metrics{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px;
+  }
+  .metric{
+    border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--card);
+  }
+  .metric .big{font-weight:800;font-size:1.8rem;line-height:1;color:var(--rust-deep);letter-spacing:-.02em}
+  .metric .cap{font-size:.8rem;color:var(--ink-soft);margin-top:7px;line-height:1.35}
+  @media(max-width:840px){.metrics{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- SECTION TITLES ---------- */
+  .sec-head{
+    display:flex;align-items:baseline;gap:16px;margin:62px 0 24px;
+  }
+  .sec-head .num{
+    font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--rust);
+    font-weight:700;letter-spacing:.1em;
+  }
+  .sec-head h2{
+    font-family:'Manrope',sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-.02em;
+  }
+  .sec-head .rule{flex:1;height:1px;background:var(--line);align-self:center}
+
+  /* ---------- FESTRA CARD ---------- */
+  .festra{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:38px 38px 34px;position:relative;overflow:hidden;
+    box-shadow:0 18px 50px -32px rgba(21,23,28,.30);
+  }
+  .festra::before{
+    content:"";position:absolute;top:0;left:0;width:100%;height:5px;
+    background:linear-gradient(90deg,var(--rust),var(--rust-deep));
+  }
+  .festra-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+  .festra-name{font-family:'Manrope',sans-serif;font-weight:800;font-size:2.2rem;letter-spacing:-.03em}
+  .festra-sub{color:var(--ink-soft);font-size:.98rem;margin-top:4px;max-width:34em}
+  .live{
+    display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;font-weight:500;letter-spacing:.05em;color:var(--live);
+    border:1px solid var(--live);border-radius:30px;padding:6px 13px;white-space:nowrap;
+  }
+  .live .dot{width:8px;height:8px;border-radius:50%;background:var(--live);
+    box-shadow:0 0 0 0 rgba(31,122,77,.6);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,122,77,.5)}70%{box-shadow:0 0 0 9px rgba(31,122,77,0)}100%{box-shadow:0 0 0 0 rgba(31,122,77,0)}}
+
+  .role-line{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--rust);margin:24px 0 18px;font-weight:500}
+
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .step{
+    background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:15px 15px 16px;
+    position:relative;transition:transform .25s ease,border-color .25s ease;
+  }
+  .step:hover{transform:translateY(-3px);border-color:var(--rust)}
+  .step .n{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.7rem;color:var(--rust);
+    letter-spacing:.1em}
+  .step .t{font-weight:700;font-size:.92rem;margin:6px 0 4px;line-height:1.25}
+  .step .d{font-size:.79rem;color:var(--ink-soft);line-height:1.45}
+
+  .festra-foot{
+    margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  }
+  .ffbox{background:var(--paper);border-radius:12px;padding:16px 18px;border:1px solid var(--line)}
+  .ffbox .lbl{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-faint);margin-bottom:7px}
+  .ffbox .val{font-size:.92rem;color:var(--ink);line-height:1.5}
+  .ffbox .val b{color:var(--rust-deep)}
+  .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:.68rem;background:var(--paper-2);
+    border:1px solid var(--line);border-radius:6px;padding:3px 8px;color:var(--ink-soft)}
+
+  .proj{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:22px 26px;margin-top:16px;display:grid;grid-template-columns:1fr auto;
+    gap:14px 28px;align-items:center;box-shadow:0 12px 34px -28px rgba(21,23,28,.26)}
+  .proj .pmeta{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--rust);margin-bottom:5px}
+  .proj .ptitle{font-family:'Manrope',sans-serif;font-weight:800;font-size:1.12rem;letter-spacing:-.01em}
+  .proj .psub{color:var(--ink-soft);font-size:.88rem;margin-top:7px;max-width:46em;line-height:1.5}
+  .proj .pwin{text-align:right}
+  .proj .pwin b{color:var(--rust-deep);font-size:1.7rem;font-weight:800;display:block;letter-spacing:-.02em}
+  .proj .pwin span{font-size:.8rem;color:var(--ink-soft)}
+  @media(max-width:840px){.proj{grid-template-columns:1fr}.proj .pwin{text-align:left}}
+
+  /* ---------- EXPERIENCE ---------- */
+  .job{
+    display:grid;grid-template-columns:170px 1fr;gap:26px;
+    padding:26px 0;border-bottom:1px solid var(--line);
+  }
+  .job:last-child{border-bottom:none}
+  .job-meta .dates{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--rust);
+    font-weight:500;letter-spacing:.03em}
+  .job-meta .dur{font-size:.74rem;color:var(--ink-faint);margin-top:2px}
+  .job-meta .co{font-weight:800;font-size:1.05rem;margin-top:9px}
+  .job-meta .place{font-size:.78rem;color:var(--ink-soft);margin-top:2px}
+  .job-body .pos{font-family:'Manrope',sans-serif;font-weight:700;font-size:1.12rem;
+    letter-spacing:-.01em;margin-bottom:11px}
+  .job-body ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .job-body li{font-size:.91rem;color:var(--ink);padding-left:18px;position:relative;line-height:1.5}
+  .job-body li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:1px;background:var(--rust)}
+  .wins{margin-top:14px;background:var(--card);border-left:3px solid var(--rust);
+    border-radius:0 10px 10px 0;padding:13px 16px;display:flex;flex-direction:column;gap:5px}
+  .wins .wlbl{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--rust);margin-bottom:3px}
+  .wins div{font-size:.88rem}
+  .wins b{color:var(--rust-deep);font-weight:700}
+  .wins + ul{margin-top:16px}
+
+  .earlier{font-size:.86rem;color:var(--ink-soft);line-height:1.7;margin-top:6px}
+  .earlier b{color:var(--ink)}
+
+  /* ---------- SKILLS ---------- */
+  .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .skillcat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+  .skillcat h3{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--rust);margin-bottom:13px;font-weight:700}
+  .skillcat .items{display:flex;flex-wrap:wrap;gap:7px}
+  .skillcat .items span{font-size:.84rem;background:var(--paper);border:1px solid var(--line);
+    border-radius:7px;padding:4px 10px;color:var(--ink)}
+
+  /* ---------- EDU / LANG ---------- */
+  .two{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+  .edu-item{padding:12px 0;border-bottom:1px solid var(--line);display:grid;
+    grid-template-columns:54px 1fr;gap:14px;align-items:baseline}
+  .edu-item:last-child{border-bottom:none}
+  .edu-item .yr{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--rust);font-weight:500}
+  .edu-item .desc{font-size:.9rem}
+  .edu-item .desc b{font-weight:700}
+  .langbar{margin-bottom:18px}
+  .langbar .lt{display:flex;justify-content:space-between;font-size:.92rem;margin-bottom:6px}
+  .langbar .lt b{font-weight:700}
+  .langbar .lt span{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--ink-soft)}
+  .track{height:6px;background:var(--paper-2);border-radius:6px;overflow:hidden}
+  .fill{height:100%;background:linear-gradient(90deg,var(--rust),var(--rust-deep));border-radius:6px}
+
+  /* ---------- FOOTER ---------- */
+  footer{margin-top:60px;padding-top:24px;border-top:3px solid var(--ink);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  footer .cta{font-size:.92rem;color:var(--ink-soft)}
+  footer a.case{font-family:'JetBrains Mono',monospace;font-size:.78rem;text-decoration:none;
+    background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:30px;letter-spacing:.04em;
+    transition:background .2s}
+  footer a.case:hover{background:var(--rust)}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:840px){
+    .wrap{padding:40px 22px 60px}
+    header{grid-template-columns:1fr;gap:18px}
+    .contacts{text-align:left}
+    .flow{grid-template-columns:repeat(2,1fr)}
+    .festra-foot{grid-template-columns:1fr}
+    .job{grid-template-columns:1fr;gap:12px}
+    .skills{grid-template-columns:1fr}
+    .two{grid-template-columns:1fr;gap:26px}
+  }
+  @media print{
+    body{background:#fff;background-image:none}
+    .festra,.skillcat,.wins,.ffbox,.step{box-shadow:none}
+    .reveal{opacity:1;transform:none}
+    .step:hover{transform:none}
+    footer a.case{background:#000;color:#fff}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header class="reveal">
+    <div>
+      <div class="eyebrow">Резюме · обновлено 2026</div>
+      <h1>Виталий<span class="last">Солельщиков</span></h1>
+      <div class="role">Product Manager</div>
+      <div class="role-tags">Product discovery · A/B-тесты · юнит-экономика · CRM / Lifecycle · запуски с нуля</div>
+    </div>
+    <div class="contacts">
+      Санкт-Петербург<br>
+      <a href="https://t.me/Vitalij1001">Telegram · @Vitalij1001</a><br>
+      <a href="mailto:veliside584@gmail.com">veliside584@gmail.com</a><br>
+      <span class="tag">Готов к переезду · удалёнка</span>
+    </div>
+  </header>
+
+  <!-- LEAD -->
+  <p class="lead reveal">
+    Веду продукт с нуля: от ресёрча проблемы и проверки гипотез - до запуска и метрик.
+    <b>11+ лет в digital</b>, последние 3 года - в финтехе. Собираю MVP руками
+    (FlutterFlow, Firebase, n8n), проверяю спрос через CustDev / JTBD и A/B-тесты,
+    считаю экономику и retention. Все проекты в опыте тащил сам - от идеи до финальной аналитики.
+  </p>
+
+  <div class="metrics reveal">
+    <div class="metric"><div class="big">ROI 233%</div><div class="cap">личный запуск онлайн-курса с нуля</div></div>
+    <div class="metric"><div class="big">30%</div><div class="cap">выручки CRM дал квиз-канал, Skyeng</div></div>
+    <div class="metric"><div class="big">+12%</div><div class="cap">к финансовой метрике, Space307</div></div>
+    <div class="metric"><div class="big">+300%</div><div class="cap">прибыли курса, апселл по базе</div></div>
+  </div>
+
+  <!-- FESTRA -->
+  <div class="sec-head reveal">
+    <span class="num">01</span><h2>Собственные продукты и проекты</h2><span class="rule"></span>
+  </div>
+
+  <div class="festra reveal">
+    <div class="festra-top">
+      <div>
+        <div class="festra-name">Festra</div>
+        <div class="festra-sub">Приложение для покупки билетов на концерты и спортивные события в США и Канаде.</div>
+      </div>
+      <span class="live"><span class="dot"></span>Закрытый тест · Google Play</span>
+    </div>
+
+    <div class="role-line">Роль: Founder / Product Manager - стратегия, ресёрч, флоу, MVP, аналитика</div>
+
+    <div class="flow">
+      <div class="step"><div class="n">01</div><div class="t">Ресёрч проблемы</div><div class="d">Боли пользователей при покупке билетов как отправная точка.</div></div>
+      <div class="step"><div class="n">02</div><div class="t">Анализ чартов сторов</div><div class="d">App Store и Google Play в US/CA - оценка спроса на категорию.</div></div>
+      <div class="step"><div class="n">03</div><div class="t">Анализ отзывов</div><div class="d">Разбор комментариев к билетным приложениям, сбор топа болей.</div></div>
+      <div class="step"><div class="n">04</div><div class="t">Расчёт капитализации</div><div class="d">Оценка объёма рынка и потенциала ниши.</div></div>
+      <div class="step"><div class="n">05</div><div class="t">Сборка концепта</div><div class="d">Концепт вокруг ключевых болей пользователей.</div></div>
+      <div class="step"><div class="n">06</div><div class="t">MVP своими руками</div><div class="d">FlutterFlow + Firebase, подгрузка событий из Digital Ocean.</div></div>
+      <div class="step"><div class="n">07</div><div class="t">Закрытый тест</div><div class="d">Приложение в закрытом тесте в Google Play.</div></div>
+      <div class="step"><div class="n">08</div><div class="t">Валидация трекшна</div><div class="d">Retention 7d / 14d / 30d, цель - 9-10%+.</div></div>
+    </div>
+
+    <div class="festra-foot">
+      <div class="ffbox">
+        <div class="lbl">Технический стек - собрано самостоятельно</div>
+        <div class="stack">
+          <span class="chip">FlutterFlow</span><span class="chip">Firebase</span>
+          <span class="chip">Digital Ocean</span><span class="chip">Python-скрипты</span>
+          <span class="chip">App Store / Play research</span>
+        </div>
+      </div>
+      <div class="ffbox">
+        <div class="lbl">Что дальше</div>
+        <div class="val">После релиза считаю <b>Retention 7d / 14d / 30d</b> для оценки трекшна (порог 9-10%). Параллельно ресёрчу рынок в смежных нишах для следующих продуктов.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj reveal">
+    <div>
+      <div class="pmeta">Личный проект · 2021</div>
+      <div class="ptitle">Запуск онлайн-курса с нуля - продакт / продюсер</div>
+      <div class="psub">Самостоятельно прошёл весь цикл: глубинные интервью с аудиторией и поиск болей, тест гипотез таргетом на минимальном бюджете, сборка офера (трипваер), лендинга, оплаты и автоматизации продаж, затем запуск и оптимизация связок. Эксперт без продукта и аудитории, бюджет 30 000 ₽.</div>
+    </div>
+    <div class="pwin"><b>ROI 233%</b><span>план - за 2 недели</span></div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="sec-head reveal">
+    <span class="num">02</span><h2>Опыт работы</h2><span class="rule"></span>
+  </div>
+
+  <div class="job reveal">
+    <div class="job-meta">
+      <div class="dates">Май 2023 - наст. время</div>
+      <div class="dur">3 года 2 мес.</div>
+      <div class="co">Space307</div>
+      <div class="place">Кипр · финтех, управление активами</div>
+    </div>
+    <div class="job-body">
+      <div class="pos">Senior CRM Marketing Manager - продуктовая роль</div>
+      <div class="wins">
+        <div class="wlbl">Результаты</div>
+        <div>Инструмент, сокративший создание и сборку контента <b>с 2 недель до 3 дней</b>.</div>
+        <div>Скрипты для A/B-тестов, имитирующие продуктовые фичи, чтобы дешевле проверять гипотезы.</div>
+        <div>Запуск проекта в CRM дал рост финансовой метрики на <b>+12%</b>.</div>
+      </div>
+      <ul>
+        <li>Веду проекты с продуктовой командой от идеи до финальной аналитики.</li>
+        <li>Ставлю и приоритизирую гипотезы, провожу A/B-тесты.</li>
+        <li>Строю и масштабирую продуктовые / маркетинговые проекты для роста дохода.</li>
+        <li>Дашборды (nRFM, lifecycle) для быстрой аналитики и принятия решений.</li>
+        <li>Постановка ТЗ разработчикам, дизайнерам, копирайтерам; контроль реализации.</li>
+        <li>Работа в связке с аналитиками и риск-менеджерами.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job reveal">
+    <div class="job-meta">
+      <div class="dates">Ноя 2022 - Апр 2023</div>
+      <div class="dur">6 мес.</div>
+      <div class="co">Careerum</div>
+      <div class="place">Эстония · EdTech / IT</div>
+    </div>
+    <div class="job-body">
+      <div class="pos">CRM Automation Engineer</div>
+      <div class="wins">
+        <div class="wlbl">Результаты</div>
+        <div>Автоцепочка: средний <b>OR 37%</b>, <b>CTOR 9%</b>.</div>
+        <div>После автосегментации - рост выручки с email-канала на <b>+25%</b>.</div>
+      </div>
+      <ul>
+        <li>Спроектировал систему автосегментации базы, связав CRM с коммуникационными платформами.</li>
+        <li>Построил автоматизированные lifecycle-цепочки и воронки на вебинары с нуля.</li>
+        <li>Выстроил еженедельный цикл мониторинга метрик и оптимизации.</li>
+        <li>Интегрировал инструменты коммуникаций между собой.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job reveal">
+    <div class="job-meta">
+      <div class="dates">Окт 2021 - Сен 2022</div>
+      <div class="dur">1 год</div>
+      <div class="co">Skyeng</div>
+      <div class="place">Москва · EdTech</div>
+    </div>
+    <div class="job-body">
+      <div class="pos">Marketing Automation Engineer / CRM</div>
+      <div class="wins">
+        <div class="wlbl">Результаты</div>
+        <div>Квиз как канал монетизации - <b>30%</b> всей выручки CRM.</div>
+        <div>Автосегментация + дожимы: OR <b>с 8% до 15%</b>, CR <b>с 2% до 5%</b>.</div>
+      </div>
+      <ul>
+        <li>Построил автоворонки полного цикла: гипотеза, тест, данные, внедрение.</li>
+        <li>Разработал квиз как самостоятельный канал монетизации внутри продукта.</li>
+        <li>Спроектировал трипваерную воронку с управлением конверсией.</li>
+        <li>Каскадные коммуникации (email, push, SMS) с оптимизацией по отклику.</li>
+        <li>Проводил CustDev и UX-исследования для приоритизации гипотез.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job reveal">
+    <div class="job-meta">
+      <div class="dates">Май 2021 - Окт 2021</div>
+      <div class="dur">6 мес.</div>
+      <div class="co">Школа векторного массажа</div>
+      <div class="place">Москва · онлайн-образование</div>
+    </div>
+    <div class="job-body">
+      <div class="pos">Growth Automation Manager - проектная роль</div>
+      <div class="wins">
+        <div class="wlbl">Результаты</div>
+        <div>OTO-витрина: конверсия в заказ <b>30%</b>.</div>
+        <div>Когортная цепочка: <b>+3%</b> к выручке школы ежемесячно.</div>
+      </div>
+      <ul>
+        <li>Спроектировал и запустил OTO-воронку (one time offer) с управлением конверсией.</li>
+        <li>Построил когортную цепочку с ежемесячным приростом к выручке.</li>
+        <li>Формировал бэклог автоматизаций, приоритизировал и вёл реализацию через спринты.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job reveal">
+    <div class="job-meta">
+      <div class="dates">Июн 2020 - Май 2021</div>
+      <div class="dur">1 год</div>
+      <div class="co">Школа векторного массажа</div>
+      <div class="place">Москва · онлайн-образование</div>
+    </div>
+    <div class="job-body">
+      <div class="pos">Интернет-маркетолог</div>
+      <div class="wins">
+        <div class="wlbl">Результаты</div>
+        <div>Прибыль от одного курса - <b>+300%</b>.</div>
+      </div>
+      <ul>
+        <li>Создание прямых и вебинарных автоворонок.</li>
+        <li>Маркетинговая стратегия по каналам, упаковка / переупаковка продуктов.</li>
+        <li>Инструменты для роста вовлечённости и доходимости аудитории.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job reveal">
+    <div class="job-meta">
+      <div class="dates">2014 - 2020</div>
+      <div class="dur">ранний опыт</div>
+      <div class="co">Ранее</div>
+    </div>
+    <div class="job-body">
+      <p class="earlier">
+        <b>Media buyer / вебмастер</b> (2019-2020) - лендинги, креативы, кампании в Facebook / Yandex / Google Ads, бюджет $4000+, A/B-тесты связок.
+        <b>DigitalContact</b> (2018-2019, США) - email-вёрстка, настройка ESP, прохождение спам-фильтров.
+        <b>Деловые Линии</b> (2014-2017) - контроль и стандартизация качества обслуживания, разбор ошибок процессов.
+      </p>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="sec-head reveal">
+    <span class="num">03</span><h2>Навыки</h2><span class="rule"></span>
+  </div>
+
+  <div class="skills">
+    <div class="skillcat reveal">
+      <h3>Продукт</h3>
+      <div class="items">
+        <span>CustDev</span><span>JTBD</span><span>RAT</span><span>Приоритизация гипотез</span>
+        <span>A/B-тесты</span><span>MVP с нуля</span><span>Unit-экономика</span>
+        <span>Retention / воронки</span><span>Анализ рынка и конкурентов</span><span>Расчёт TAM</span>
+      </div>
+    </div>
+    <div class="skillcat reveal">
+      <h3>Инструменты</h3>
+      <div class="items">
+        <span>FlutterFlow</span><span>Firebase</span><span>Digital Ocean</span><span>n8n</span>
+        <span>Exponea / Bloomreach</span><span>SendPulse</span><span>AMO CRM</span>
+        <span>Customer.io</span><span>Tilda</span><span>Figma</span><span>Canva</span>
+      </div>
+    </div>
+    <div class="skillcat reveal">
+      <h3>Аналитика</h3>
+      <div class="items">
+        <span>Google Analytics</span><span>Яндекс.Метрика</span><span>Roistat</span>
+        <span>Wordstat</span><span>Similarweb</span><span>Popsters</span>
+      </div>
+    </div>
+    <div class="skillcat reveal">
+      <h3>AI & разработка</h3>
+      <div class="items">
+        <span>OpenAI API</span><span>AI-пайплайны для контента</span>
+        <span>Технический бэкграунд веб-разработки</span><span>Деловая переписка EN</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDU / LANG -->
+  <div class="sec-head reveal">
+    <span class="num">04</span><h2>Образование и языки</h2><span class="rule"></span>
+  </div>
+
+  <div class="two">
+    <div class="reveal">
+      <div class="edu-item"><div class="yr">2021</div><div class="desc"><b>CustDev + JTBD + RAT</b> - Иван Замесин. Сегментация клиентов и проверка гипотез.</div></div>
+      <div class="edu-item"><div class="yr">2020</div><div class="desc"><b>Менеджер проектов</b> - Богданов и партнёры.</div></div>
+      <div class="edu-item"><div class="yr">2019</div><div class="desc"><b>Продюсер онлайн-школы</b> - школа Николая Волосянкова.</div></div>
+      <div class="edu-item"><div class="yr">2018</div><div class="desc"><b>Web-разработка</b> - Skillbox.</div></div>
+      <div class="edu-item"><div class="yr">2011</div><div class="desc">Астраханский гос. политехнический колледж - техническое.</div></div>
+    </div>
+    <div class="reveal">
+      <div class="langbar">
+        <div class="lt"><b>Русский</b><span>Родной</span></div>
+        <div class="track"><div class="fill" style="width:100%"></div></div>
+      </div>
+      <div class="langbar">
+        <div class="lt"><b>Английский</b><span>B1 · English First</span></div>
+        <div class="track"><div class="fill" style="width:55%"></div></div>
+      </div>
+      <p class="earlier" style="margin-top:18px">
+        Soft skills: легко нахожу общий язык, аргументирую без токсичности, довожу проекты до конца.
+        Вне работы - хайкинг и треккинг, книги, фортепиано.
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="reveal">
+    <div class="cta">Портфолио кейсов с цифрами и механиками доступно по ссылке.</div>
+    <a class="case" href="https://drive.google.com/drive/folders/1q1oOemrsNqMAKb3CKfDEnFCjl9Qq8Fb4" target="_blank" rel="noopener">Смотреть кейсы</a>
+  </footer>
+
+</div>
+
+<script>
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add('in'), Math.min(i*40,160));
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
